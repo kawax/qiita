@@ -17,6 +17,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Route::namespace('Auth')->group(function () {
+    Route::name('login')->get('login', 'LoginController@login');
+    Route::get('callback', 'LoginController@callback');
+    Route::any('logout', 'LoginController@logout')
+         ->name('logout');
+});
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware('auth')->group(function (){
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::delete('delete/{id}', 'DeleteController')->name('delete');
+
+});

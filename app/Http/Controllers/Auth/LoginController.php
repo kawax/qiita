@@ -3,38 +3,68 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Model\User;
+use Illuminate\Http\Request;
+use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
-
-    use AuthenticatesUsers;
-
     /**
-     * Where to redirect users after login.
-     *
-     * @var string
+     * @return mixed
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function login()
     {
-        $this->middleware('guest')->except('logout');
+        return Socialite::driver('qiita')
+                        ->scopes(['write_qiita'])
+                        ->redirect();
+    }
+
+    /**
+     * @param  Request  $request
+     *
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function callback(Request $request)
+    {
+        if (! $request->has('code')) {
+            return redirect('/');
+        }
+
+        $loginUser = $this->user();
+
+        auth()->login($loginUser, true);
+
+        return redirect()->route('home');
+    }
+
+    /**
+     * @return User
+     */
+    protected function user()
+    {
+        /**
+         * @var \Laravel\Socialite\Two\User
+         */
+        $user = Socialite::driver('qiita')->user();
+
+        return User::updateOrCreate(
+            [
+                'id' => $user->id,
+            ],
+            [
+                'name'  => $user->name,
+                'token' => $user->token,
+            ]
+        );
+    }
+
+    /**
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function logout()
+    {
+        auth()->logout();
+
+        return redirect('/');
     }
 }

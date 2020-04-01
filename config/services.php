@@ -30,4 +30,10 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'qiita' => [
+        'client_id'     => env('QIITA_CLIENT_ID'),
+        'client_secret' => env('QIITA_CLIENT_SECRET'),
+        'redirect'      => env('QIITA_REDIRECT'),
+    ],
+
 ];
