@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7227c83a81293c18a77d53e2f5108909",
+    "content-hash": "459ef65f6083032f8ab874b6112c8a01",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -734,6 +734,7 @@
                     "email": "jakub.onderka@gmail.com"
                 }
             ],
+            "abandoned": "php-parallel-lint/php-console-color",
             "time": "2018-09-29T17:23:10+00:00"
         },
         {
@@ -780,6 +781,7 @@
                 }
             ],
             "description": "Highlight PHP code in terminal",
+            "abandoned": "php-parallel-lint/php-console-highlighter",
             "time": "2018-09-29T18:48:56+00:00"
         },
         {
@@ -2190,16 +2192,16 @@
         },
         {
             "name": "revolution/socialite-qiita",
-            "version": "1.2.2",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kawax/socialite-qiita.git",
-                "reference": "97c4d3d3fb0f8e82af23d68bd9432293b7f43baa"
+                "reference": "ef76c0ced39e4f93abcaea7e710395317baa0209"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kawax/socialite-qiita/zipball/97c4d3d3fb0f8e82af23d68bd9432293b7f43baa",
-                "reference": "97c4d3d3fb0f8e82af23d68bd9432293b7f43baa",
+                "url": "https://api.github.com/repos/kawax/socialite-qiita/zipball/ef76c0ced39e4f93abcaea7e710395317baa0209",
+                "reference": "ef76c0ced39e4f93abcaea7e710395317baa0209",
                 "shasum": ""
             },
             "require": {
@@ -2241,7 +2243,7 @@
                 "qiita",
                 "socialite"
             ],
-            "time": "2020-03-04T13:59:16+00:00"
+            "time": "2020-04-05T03:58:01+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4567,28 +4569,28 @@
         },
         {
             "name": "nunomaduro/collision",
-            "version": "v4.1.3",
+            "version": "v4.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nunomaduro/collision.git",
-                "reference": "a430bce33d1ad07f756ea6cae9afce9ef8670b42"
+                "reference": "d50490417eded97be300a92cd7df7badc37a9018"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nunomaduro/collision/zipball/a430bce33d1ad07f756ea6cae9afce9ef8670b42",
-                "reference": "a430bce33d1ad07f756ea6cae9afce9ef8670b42",
+                "url": "https://api.github.com/repos/nunomaduro/collision/zipball/d50490417eded97be300a92cd7df7badc37a9018",
+                "reference": "d50490417eded97be300a92cd7df7badc37a9018",
                 "shasum": ""
             },
             "require": {
                 "facade/ignition-contracts": "^1.0",
                 "filp/whoops": "^2.4",
-                "jakub-onderka/php-console-highlighter": "^0.4",
                 "php": "^7.2.5",
                 "symfony/console": "^5.0"
             },
             "require-dev": {
                 "facade/ignition": "^2.0",
                 "fideloper/proxy": "^4.2",
+                "friendsofphp/php-cs-fixer": "^2.16",
                 "fruitcake/laravel-cors": "^1.0",
                 "laravel/framework": "^7.0",
                 "laravel/tinker": "^2.0",
@@ -4647,7 +4649,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2020-03-07T12:46:00+00:00"
+            "time": "2020-04-04T19:56:08+00:00"
         },
         {
             "name": "phar-io/manifest",

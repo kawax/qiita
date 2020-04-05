@@ -15,7 +15,6 @@ class LoginController extends Controller
     public function login()
     {
         return Socialite::driver('qiita')
-                        ->scopes(['write_qiita'])
                         ->redirect();
     }
 
